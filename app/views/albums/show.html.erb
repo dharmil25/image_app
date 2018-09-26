@@ -1,0 +1,11 @@
+<% provide(:title, @album.name) %>
+<div class="row">
+  <div class="col-md-8">
+    <% if @album.photos.any? %>
+      <h3>Photos (<%= @album.photos.count %>)</h3>
+      <ol class="photos">
+        <%= render @photos %>
+      </ol>
+    <% end %>
+  </div>
+</div>
