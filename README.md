@@ -1,19 +1,10 @@
-# Ruby on Rails Tutorial sample application
+# Image Sharing Application
 
-This is the sample application for
-[*Ruby on Rails Tutorial:
-Learn Web Development with Rails*](http://www.railstutorial.org/)
-by [Michael Hartl](http://www.michaelhartl.com/).
-
-## License
-
-All source code in the [Ruby on Rails Tutorial](http://railstutorial.org/)
-is available jointly under the MIT License and the Beerware License. See
-[LICENSE.md](LICENSE.md) for details.
+This is a web application for Image Sharing:
 
 ## Getting started
 
-To get started with the app, clone the repo and then install the needed gems:
+To get started with the application, clone the repo and then install the needed gems:
 
 ```
 $ bundle install --without production
@@ -25,17 +16,28 @@ Next, migrate the database:
 $ rails db:migrate
 ```
 
-Finally, run the test suite to verify that everything is working correctly:
-
-```
-$ rails test
-```
-
-If the test suite passes, you'll be ready to run the app in a local server:
+Finally, run the app in a local server:
 
 ```
 $ rails server
 ```
 
-For more information, see the
-[*Ruby on Rails Tutorial* book](http://www.railstutorial.org/book).
+## About the App
+
+Features:
+
+1.  Users can sign up on the website via their email address and        create their own personal albums.
+
+2.  Users can upload upto 25 images per album. 
+    (Image properties: Image, Tagline, Created Date, Owner)
+    Images should be attached with a tagline.
+
+3.  Users can create any number of albums.
+    (Album properties: Name, Created Date, Owner)
+    Album should be created with a Name.
+
+4.  Images uploaded by all Users will be visible on the homepage.
+
+5.  Home page of the website displays last 25 images uploaded and       who uploaded it.
+
+6.  Users profile page displays all the albums by that user.

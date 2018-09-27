@@ -1,11 +1,28 @@
 <% provide(:title, @album.name) %>
 <div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @album.user %>
+        <%= @album.user.name %>
+      </h1>
+      <h5>
+        Album: <%= @album.name %>
+      </h5>
+    </section>
+    <%if current_user?(@album.user) %>
+      <section class="album_form">
+        <%= render 'shared/image_form' %>
+      </section>
+    <% end %>
+  </aside>
   <div class="col-md-8">
-    <% if @album.photos.any? %>
-      <h3>Photos (<%= @album.photos.count %>)</h3>
-      <ol class="photos">
-        <%= render @photos %>
+    <% if @album.images.any? %>
+      <h3>Images (<%= @album.images.count %>)</h3>
+      <ol class="albums">
+        <%= render @images %>
       </ol>
+      <%= will_paginate @images %>      
     <% end %>
   </div>
 </div>

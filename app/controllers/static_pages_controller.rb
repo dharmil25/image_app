@@ -1,9 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-    if logged_in?
-      @album  = current_user.albums.build
-      @feed_items = current_user.feed.all
-    end
+      @feed_items = Image.paginate(page: params[:page], :per_page => 25)
   end
 
 end

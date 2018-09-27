@@ -4,9 +4,16 @@
     <section class="user_info">
       <h1>
         <%= gravatar_for @user %>
-        <%= @user.name %>
+        <br><%= @user.name %>
       </h1>
+      <h5>Albums: <%= @user.albums.count %>
+      </h5>
     </section>
+    <%if current_user?(@user) %>
+      <section class="album_form">
+        <%= render 'shared/album_form' %>
+      </section>
+    <%end %>
   </aside>
   <div class="col-md-8">
     <% if @user.albums.any? %>
@@ -14,6 +21,7 @@
       <ol class="albums">
         <%= render @albums %>
       </ol>
+      <%= will_paginate @albums %>
     <% end %>
   </div>
 </div>

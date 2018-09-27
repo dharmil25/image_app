@@ -1,0 +1,12 @@
+<li id="<%= image.id %>">
+  <span class="content">
+  <%= image_tag image.picture.url if image.picture? %>
+  </span>
+  <span class="content">
+  Tagline: <b><%= image.tagline %></b>
+  </span>
+  <span class="content">Owner: <%= link_to image.album.user.name, image.album.user %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(image.created_at) %> ago.
+  </span>
+</li>

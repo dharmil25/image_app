@@ -4,12 +4,15 @@ class UsersController < ApplicationController
     before_action :admin_user,     only: :destroy
 
     def index
-        @users = User.all
+        @users = User.paginate(page: params[:page], :per_page => 10)
     end
   
     def show
         @user = User.find(params[:id])
-        @albums = @user.albums.all
+        if logged_in?
+            @album  = current_user.albums.build
+        end
+        @albums = @user.albums.paginate(page: params[:page], :per_page => 5)
     end
     
     def new
