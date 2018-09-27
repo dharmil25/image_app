@@ -5,3 +5,26 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.create!(name:  "Example User",
+             email: "user@example.com",
+             password:              "foobar",
+             password_confirmation: "foobar",
+             admin: true)
+
+14.times do |n|
+  name  = Faker::Name.name
+  email = "user-#{n+1}@example.org"
+  password = "password"
+  User.create!(name:  name,
+               email: email,
+               password:              password,
+               password_confirmation: password)
+end
+
+users = User.order(:created_at).take(10)
+30.times do
+  name = Faker::Lorem.sentence(1)
+  users.each { |user| user.albums.create!(name: name) }
+end
+
